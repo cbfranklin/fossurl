@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>FossURL - Your Own Url Shortner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="design-language/dist/design-language.css">
+</head>
+
+<body>
+  <section class="vertical-offset-md"></section>
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-centered-6">
+          <div class="row vertical-offset-xl">
+            <div class="col-sm-1 hidden-xs">
+              <img width="100%" height="auto" src="https://etrade.design/inspector/favicon.png" />
+            </div>
+            <div class="col-sm-11">
+              <h1>etrade.design url shortener</h1>
+            </div>
+          </div>
+          <form action="/create" method="post">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="example">URL to shorten</label>
+                  <input type="text" class="form-control" name="url" id="url">
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                  <label for="example">Slug (optional)</label>
+                  <input type="text" class="form-control" id="slug" name="slug">
+                </div>
+              </div>
+               <div class="col-xs-12">
+                <button type="submit" class="btn btn-primary btn-block">Shorten</button>
+              </div>
+            </div>
+          </form>
+          <!-- <div class="row">
+            <div class="col-xs-12">
+              <p>Forked from FossURL, made with ❤ by
+                <a href="https://palash.tk">Palash Bauri</a>
+              </p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="js/simplecopy.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>

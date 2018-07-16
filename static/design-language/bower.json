@@ -1,0 +1,24 @@
+{
+  "name": "edesign-language",
+  "homepage": "https://etrade.design",
+  "description": "The E*TRADE design language to be used across projects to provide a standard look and feel throughout the site.",
+  "authors": [
+    "Josh Chaiken <joshua.chaiken@etrade.com>",
+    "Clifford Jordan <clifford.jordan@etrade.com>"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "playground",
+    "dist",
+    ".sass-cache",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "material-design-icons": "^3.0.1"
+  }
+}

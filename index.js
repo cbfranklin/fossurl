@@ -1,74 +1,71 @@
-var urldb = "https://design-language-json.herokuapp.com/ea13c65608080e294dced7f519224c64949f0c80fb9ce212c4d39d5b5d9f1a92";
-// var urllist = "https://www.jsonstore.io/634de8a8aa3d48c3074c5a01ec605368cd11248502306ee7a4916ad67d2222b0";
+const express = require("express");
+const bodyParser = require("body-parser");
+const needle = require("needle");
+const app = express();
 
-function genran() {
+const endpoint = `https://design-language-json.herokuapp.com/ea13c65608080e294dced7f519224c64949f0c80fb9ce212c4d39d5b5d9f1a92`;
 
-    if (window.location.hash == "") {
-        window.location.hash = Math.random().toString(32).substring(2, 5) + Math.random().toString(36).substring(2, 5);
-        // $.getJSON(urllist + "/" + window.location.hash, function(data){
-        //     data = data["result"];
-        //     if(data!=null){
-        //         window.location.hash =Math.random().toString(32).substring(2, 5) + Math.random().toString(36).substring(2, 5);
-        //     }
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 
-        // });
+app.use(bodyParser.json());
 
-    }
+app.get("/:slug", (req, res) => {
+  var slug = req.params.slug;
+  console.log("/:slug", slug);
+  //   fetch(`${endpoint}/${slug}/1`).then(function(response) {
+  //     res.redirect(response.json().url);
+  //   });
 
-}
+  //   request(`${endpoint}/${slug}`, function(error, response, body) {
+  //     console.log(error, response, body);
+  //   });
+  needle.get(`${endpoint}/${slug}`, function(error, response) {
+    if (!error && response.statusCode == 200) console.log(response.json);
+  });
+});
 
-function geturl(){
-    var urlb = document.getElementById("urlbox").value;
-    var protocol_ok = urlb.startsWith("http://") || urlb.startsWith("https://") || urlb.startsWith("ftp://");
-    if(!protocol_ok){
-        url = "http://"+urlb;
-        return url;
-    }else{
-        return urlb;
-    }
-}
+app.post("/create", function(req, res) {
+  console.log("/create");
+  console.log("body:", req.body);
+  var slug = req.body.slug;
+  var url = req.body.url;
+  console.log(slug, url);
+  if (!url) {
+    url = randomShortURL();
+  }
 
-$("#sbtn").click(shorten);
-// document.getElementById("sbtn").onclick = shorten;
-function shorten() {
-    fixedurl = geturl();
-    genran();
-    short_url(fixedurl);
-    console.log("shorten");
-
-}
-
-function short_url(url) {
-    this.url = url;
-    $.ajax({
-        'url': urldb + "/" + window.location.hash.substr(1),
-        'type': 'POST',
-        'data': JSON.stringify(this.url),
-        'dataType': 'json',
-        'contentType': 'application/json; charset=utf-8'
+  //   request.post(
+  //     { url: "http://service.com/upload",
+  //     form: { key: "value" }
+  // },
+  //     function(err, httpResponse, body) {
+  //       /* ... */
+  //     }
+  //   );
+  needle("put", `${endpoint}/${slug}`, { url: url })
+    .then(function(response) {
+      res.send(response);
     })
-
-    //   $.ajax({
-    //     'url': urllist + "/" + "urllist997695",
-    //     'type': 'PUT',
-    //     'data': JSON.stringify(this.url),
-    //     'dataType': 'json',
-    //     'contentType': 'application/json; charset=utf-8'
-    //   })
-    // console.log("short_url");
-    simplecopy(window.location.href);
-}
-var hashh = window.location.hash.substr(1)
-
-
-if (window.location.hash != "") {
-    $.getJSON(urldb + "/" + hashh, function (data) {
-        data = data["result"];
-
-        if (data != null) {
-            window.location.href = data;
-        }
-
+    .catch(function(err) {
+      console.log("error!",err);
     });
+});
+
+app.use("/", express.static("static"));
+
+function randomShortURL() {
+  return (
+    Math.random()
+      .toString(32)
+      .substring(2, 5) +
+    Math.random()
+      .toString(36)
+      .substring(2, 5)
+  );
 }
 
+app.listen(3000, () => console.log("Listening for requests on port 3000"));

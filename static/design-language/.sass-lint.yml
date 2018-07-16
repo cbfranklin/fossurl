@@ -1,0 +1,78 @@
+# https://wiki.corp.etradegrp.com/index.php/UX_Design_Sass_Lint_Research#Default_Rules
+
+options:
+  merge-default-rules: false
+  formatter: stylish
+rules:
+  # These rules are errors (severity: 2)
+  class-name-format:
+    - 2
+  clean-import-paths:
+    - 2
+  extends-before-declarations:
+    - 2
+  extends-before-mixins:
+    - 2
+  function-name-format:
+    - 2
+  id-name-format:
+    - 2
+  mixin-name-format:
+    - 2
+  mixins-before-declarations:
+    - 2
+  nesting-depth:
+    - 2
+    -
+      max-depth: 3
+    - 1
+    -
+      max-depth: 1
+  no-color-keywords:
+    - 2
+  no-empty-rulesets:
+    - 2
+  no-invalid-hex:
+    - 2
+  no-misspelled-properties:
+    - 2
+  no-url-protocols:
+    - 2
+  one-declaration-per-line:
+    - 2
+  trailing-semicolon:
+    - 2
+  variable-name-format:
+    - 2
+
+  # These rules are warnings (severity: 1)
+  hex-length:
+    - 1
+    -
+      style: long
+  indentation:
+    - 1
+    -
+      size: 4
+  no-duplicate-properties:
+    - 1
+  no-important:
+    - 1
+  no-mergeable-selectors:
+    - 1
+  no-trailing-whitespace:
+    - 1
+  no-trailing-zero:
+    - 1
+  no-vendor-prefixes:
+    - 1
+  space-after-comma:
+    - 1
+  space-around-operator:
+    - 1
+  space-before-brace:
+    - 1
+  space-after-colon:
+    - 1
+  url-quotes:
+    - 1

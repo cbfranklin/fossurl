@@ -1,0 +1,77 @@
+{
+  "_from": "design-language",
+  "_id": "design-language@2018.6.15",
+  "_inBundle": false,
+  "_integrity": "sha512-eHwBthfuAtuzpM8IXDJuNZ/214LjjTdeRhsogyCnHJ8ATFlCx0pGpxtdSi2nc2OzVH0wY8j+6D1oCc9VVcS1FA==",
+  "_location": "/design-language",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "design-language",
+    "name": "design-language",
+    "escapedName": "design-language",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://nexus.etrade.com/content/groups/npm-all/design-language/-/design-language-2018.6.15.tgz",
+  "_shasum": "f575c6b5c5d3f63b42be9e3e23fbf3a391d74a35",
+  "_spec": "design-language",
+  "_where": "/Users/cfrankl1/git/fossurl",
+  "authors": [
+    "Josh Chaiken <joshua.chaiken@etrade.com>",
+    "Clif Jordan <clifford.jordan@etrade.com>",
+    "Connor Franklin <connor.franklin@etrade.com>"
+  ],
+  "bundleDependencies": false,
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "grunt": "^0.4.1",
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-banner": "^0.6.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-maven-deploy": "^0.2.1",
+    "grunt-sass-lint": "^0.2.2",
+    "jquery": "^3.2.1",
+    "jshint-stylish": "^0.2.0",
+    "load-grunt-tasks": "^0.4.0",
+    "node-static": "^0.7.9"
+  },
+  "deprecated": false,
+  "description": "The E*TRADE design language to be used across projects to provide a standard look and feel throughout the site.",
+  "devDependencies": {
+    "grunt-contrib-compress": "^1.4.3",
+    "grunt-git": "^1.0.9",
+    "grunt-gitinfo": "^0.1.8",
+    "grunt-open": "^0.2.3",
+    "grunt-prompt": "^1.3.3",
+    "grunt-shell": "^2.1.0"
+  },
+  "license": "ISC",
+  "main": "server.js",
+  "name": "design-language",
+  "publishConfig": {
+    "registry": "http://nexus.etrade.com/content/repositories/npm-et/"
+  },
+  "scripts": {
+    "around": "grunt --gruntfile Gruntfile-playground.js",
+    "bower-install": "echo \"This command has been deprecated. Bower is not longer a dependency of edesign-language\"",
+    "heroku-postbuild": "grunt --gruntfile Gruntfile-playground.js heroku",
+    "release": "grunt --gruntfile Gruntfile-release.js default",
+    "sasslint": "grunt --gruntfile Gruntfile-playground.js sasslint",
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "2018.6.15"
+}
