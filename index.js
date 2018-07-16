@@ -16,13 +16,7 @@ app.use(bodyParser.json());
 app.get("/:slug", (req, res) => {
   var slug = req.params.slug;
   console.log("/:slug", slug);
-  //   fetch(`${endpoint}/${slug}/1`).then(function(response) {
-  //     res.redirect(response.json().url);
-  //   });
 
-  //   request(`${endpoint}/${slug}`, function(error, response, body) {
-  //     console.log(error, response, body);
-  //   });
   needle.get(`${endpoint}/${slug}`, function(error, response) {
     if (!error && response.statusCode == 200) console.log(response.json);
   });
@@ -38,14 +32,6 @@ app.post("/create", function(req, res) {
     url = randomShortURL();
   }
 
-  //   request.post(
-  //     { url: "http://service.com/upload",
-  //     form: { key: "value" }
-  // },
-  //     function(err, httpResponse, body) {
-  //       /* ... */
-  //     }
-  //   );
   needle("put", `${endpoint}/${slug}`, { url: url })
     .then(function(response) {
       res.send(response);
@@ -68,4 +54,6 @@ function randomShortURL() {
   );
 }
 
-app.listen(3000, () => console.log("Listening for requests on port 3000"));
+var port = process.env.PORT || 3456;
+
+app.listen(port, () => console.log(`Listening for requests on port ${port}`));
