@@ -1,4 +1,4 @@
-var urldb = "https://www.jsonstore.io/79a85a647a95f875559fd3683f975e61b120279d8dcfd0e7e73e764979b3332e";
+var urldb = "https://design-language-json.herokuapp.com/ea13c65608080e294dced7f519224c64949f0c80fb9ce212c4d39d5b5d9f1a92";
 // var urllist = "https://www.jsonstore.io/634de8a8aa3d48c3074c5a01ec605368cd11248502306ee7a4916ad67d2222b0";
 
 function genran() {
