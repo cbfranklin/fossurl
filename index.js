@@ -34,7 +34,7 @@ app.post("/create", function(req, res) {
 
   needle("put", `${endpoint}/${slug}`, { url: url })
     .then(function(response) {
-      res.send(JSON.stringify(response));
+      res.send(response.body);
     })
     .catch(function(err) {
       console.log("error!",err);
